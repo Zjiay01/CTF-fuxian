@@ -1,0 +1,9 @@
+{% extends "base.html" %} {% block title %}Edit Ticket{% endblock %} {% block
+content %}
+<h2>Edit Ticket</h2>
+<form method="post">
+  <textarea name="ticket" placeholder="Your Ticket">{{ request.cookies.get('ticket') }}</textarea>
+  <input type="submit" value="Update Ticket" />
+</form>
+<p><a href="{{ url_for('index') }}">Back to Home</a></p>
+{% endblock %}

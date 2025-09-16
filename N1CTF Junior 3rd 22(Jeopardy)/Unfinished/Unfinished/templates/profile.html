@@ -1,0 +1,9 @@
+{% extends "base.html" %} {% block title %}Edit Profile{% endblock %} {% block
+content %}
+<h2>Edit Profile</h2>
+<form method="post">
+  <textarea name="bio" placeholder="Your Bio">{{ current_user.bio }}</textarea>
+  <input type="submit" value="Update Bio" />
+</form>
+<p><a href="{{ url_for('index') }}">Back to Home</a></p>
+{% endblock %}

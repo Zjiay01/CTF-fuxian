@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block title %}Welcome{% endblock %} {% block
+content %} {% if current_user.is_authenticated %}
+<h1>Welcome, {{ current_user.username }}!</h1>
+<p>your ticket: {{ request.cookies.get('ticket') }}</p>
+
+<h3>Your Bio:</h3>
+<div class="bio-content">
+  <p>{{ current_user.bio or 'You have not set a bio yet.'}}</p>
+</div>
+
+<p>
+  <a href="{{ url_for('profile') }}">Edit Profile</a> |
+  <a href="{{ url_for('ticket') }}">Set Ticket</a> |
+  <a href="{{ url_for('view_user') }}">View</a> |
+  <a href="{{ url_for('logout') }}">Logout</a>
+</p>
+{% else %}
+<h1>Welcome!</h1>
+<p>
+  Please <a href="{{ url_for('login') }}">login</a> or
+  <a href="{{ url_for('register') }}">register</a>.
+</p>
+{% endif %} {% endblock %}

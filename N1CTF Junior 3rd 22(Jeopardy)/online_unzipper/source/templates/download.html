@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+<h4>文件列表 ({{folder}})</h4>
+<ul>
+    {% for f in files %}
+        <li><a href="{{url_for('download_file', folder=folder, filename=f)}}">{{f}}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

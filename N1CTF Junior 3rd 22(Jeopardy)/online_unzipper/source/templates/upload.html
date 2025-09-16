@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<h4>上传 ZIP 文件解压</h4>
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="file" class="form-control mb-2" required>
+    {% if session['role']=='admin' %}
+        <input name="dirname" class="form-control mb-2" placeholder="管理员可指定文件夹名 (可选)">
+    {% endif %}
+    <button class="btn btn-primary">上传并解压</button>
+</form>
+{% endblock %}
